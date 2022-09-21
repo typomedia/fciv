@@ -4,22 +4,17 @@ namespace Typomedia\Fciv\Converter;
 
 use Symfony\Component\Serializer\NameConverter\NameConverterInterface;
 
-class UpperCaseToCamelCaseConverter implements NameConverterInterface
+class CamelCaseToUpperCaseConverter implements NameConverterInterface
 {
-    /**
-     * Converts a string like 'FILE_ENTRY' to 'fileEntry'.
-     */
-    public function normalize(string $input): string
-    {
-        $words =  ucwords(strtolower($input), '_');
-        return lcfirst(str_replace('_', '', $words));
-    }
-
     /**
      * Converts a string like 'fileEntry' to 'FILE_ENTRY'.
      */
-    public function denormalize(string $input): string
+    public function normalize(string $input): string
     {
+        if ($input === 'name') {
+            return $input;
+        }
+
         $snakeCase = '';
 
         $len = \strlen($input);
@@ -32,5 +27,14 @@ class UpperCaseToCamelCaseConverter implements NameConverterInterface
         }
 
         return $snakeCase;
+    }
+
+    /**
+     * Converts a string like 'FILE_ENTRY' to 'fileEntry'.
+     */
+    public function denormalize(string $input): string
+    {
+        $words =  ucwords(strtolower($input), '_');
+        return lcfirst(str_replace('_', '', $words));
     }
 }

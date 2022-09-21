@@ -53,8 +53,7 @@ class Hasher implements HasherInterface
         $fciv->setFileEntry($this->entries);
 
         $transformer = new Transformer();
-        $uppercase = $transformer->serializer->denormalize($fciv, Fciv::class, 'xml');
-        return $transformer->serializer->serialize($fciv, 'xml', [
+        return $transformer->getSerializer()->serialize($fciv, 'xml', [
             'xml_version' => '1.0',
             'xml_encoding' => 'utf-8',
             'xml_root_node_name' => 'FCIV',

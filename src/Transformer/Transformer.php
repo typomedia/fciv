@@ -7,6 +7,7 @@ use Symfony\Component\Serializer\Encoder\XmlEncoder;
 use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
+use Typomedia\Fciv\Converter\CamelCaseToUpperCaseConverter;
 use Typomedia\Fciv\Converter\UpperCaseToCamelCaseConverter;
 
 /**
@@ -33,5 +34,21 @@ class Transformer
         );
 
         $this->serializer = $serializer;
+    }
+
+    /**
+     * @return Serializer
+     */
+    public function getSerializer()
+    {
+        return new Serializer([
+            new ObjectNormalizer(
+                null,
+                new CamelCaseToUpperCaseConverter(),
+                null,
+                new ReflectionExtractor()
+            ),
+            new ArrayDenormalizer()
+        ], [new XmlEncoder()]);
     }
 }
