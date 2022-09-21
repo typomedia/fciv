@@ -2,7 +2,7 @@
 
 namespace Typomedia\Fciv\Parser;
 
-use Typomedia\Fciv\Entity\FCIV;
+use Typomedia\Fciv\Entity\Fciv;
 use Typomedia\Fciv\Transformer\Transformer;
 
 /**
@@ -18,6 +18,6 @@ class Parser implements ParserInterface
     public function parse(string $data)
     {
         $transformer = new Transformer();
-        return $transformer->serializer->deserialize($data, FCIV::class, 'xml');
+        return $transformer->serializer->deserialize($data, Fciv::class, 'xml');
     }
 }

@@ -7,6 +7,7 @@ use Symfony\Component\Serializer\Encoder\XmlEncoder;
 use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
+use Typomedia\Fciv\Converter\UpperCaseToCamelCaseConverter;
 
 /**
  * Class Transformer
@@ -24,7 +25,7 @@ class Transformer
         $serializer = new Serializer(
             [new ObjectNormalizer(
                 null,
-                null,
+                new UpperCaseToCamelCaseConverter(),
                 null,
                 new ReflectionExtractor()
             ), new ArrayDenormalizer()],

@@ -9,27 +9,28 @@ class HasherTest extends TestCase
 {
     public function testCreate()
     {
-        $creator = new Hasher();
+        $hasher = new Hasher();
 
         chdir(dirname(__DIR__, 2));
-        $creator->setEntries('src');
+        $hasher->setEntries('src');
 
-        $this->assertNotEmpty($creator->getResult());
+        $result = $hasher->getResult();
+        $this->assertNotEmpty($result);
 
-        file_put_contents(__DIR__ . '/../Fixtures/test.xml', $creator->getResult());
+        file_put_contents(__DIR__ . '/../Fixtures/test.xml', $result);
 
     }
 
     public function testCreate2()
     {
-        $creator = new Hasher();
+        $hasher = new Hasher();
 
         chdir(dirname(__DIR__, 2));
-        $creator->setEntries('src');
-        $creator->setEntries('tests/Fixtures');
+        $hasher->setEntries('src');
+        $hasher->setEntries('tests/Fixtures');
 
-        $this->assertNotEmpty($creator->getResult());
+        $this->assertNotEmpty($hasher->getResult());
 
-        file_put_contents(__DIR__ . '/../Fixtures/src.xml', $creator->getResult());
+        file_put_contents(__DIR__ . '/../Fixtures/src.xml', $hasher->getResult());
     }
 }

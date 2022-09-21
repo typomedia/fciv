@@ -7,7 +7,9 @@ use PHPUnit\Framework\TestCase;
 
 class ValidatorTest extends TestCase
 {
-
+    /**
+     * @throws \Exception
+     */
     public function testValidate()
     {
         $input = __DIR__ . '/../Fixtures/test.xml';

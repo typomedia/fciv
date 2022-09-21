@@ -3,7 +3,7 @@
 namespace Typomedia\Fciv\Verifier;
 
 use Exception;
-use Typomedia\Fciv\Entity\FCIV;
+use Typomedia\Fciv\Entity\Fciv;
 use Typomedia\Fciv\Parser\Parser;
 
 /**
@@ -22,14 +22,14 @@ class Verifier implements VerifierInterface
     {
         $parser = new Parser();
 
-        /** @var FCIV $files */
+        /** @var Fciv $files */
         $files = $parser->parse($data);
 
-        foreach ($files->FILE_ENTRY as $file) {
+        foreach ($files->fileEntry as $file) {
             $filename = $path ? $path . '/' . $file['name'] : $file['name'];
             $md5 = md5_file(str_replace('\\', DIRECTORY_SEPARATOR, $filename));
 
-            if ($md5 !== bin2hex(base64_decode($file['MD5']))) {
+            if ($md5 !== bin2hex(base64_decode($file['md5']))) {
                 throw new Exception('MD5 mismatch for file: ' . $filename);
             }
         }

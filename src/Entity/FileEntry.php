@@ -3,11 +3,10 @@
 namespace Typomedia\Fciv\Entity;
 
 /**
- * Class FILE_ENTRY
+ * Class FileEntry
  * @package Typomedia\Fciv\Entity
- * @phpcs phpcs:ignoreFile
  */
-class FILE_ENTRY
+class FileEntry
 {
     /**
      * @var string
@@ -17,12 +16,12 @@ class FILE_ENTRY
     /**
      * @var string
      */
-    public $MD5;
+    public $md5;
 
     /**
      * @var string
      */
-    public $SHA1;
+    public $sha1;
 
     /**
      * @param string $name
@@ -33,22 +32,22 @@ class FILE_ENTRY
     }
 
     /**
-     * @param string $MD5
+     * @param string $md5
      */
-    public function setMD5(string $MD5): void
+    public function setMd5(string $md5): void
     {
-        $md5 = md5_file($MD5);
+        $md5 = md5_file($md5);
         $hex = hex2bin($md5);
-        $this->MD5 = base64_encode($hex);
+        $this->md5 = base64_encode($hex);
     }
 
     /**
-     * @param string $SHA1
+     * @param string $sha1
      */
-    public function setSHA1(string $SHA1): void
+    public function setSha1(string $sha1): void
     {
-        $sha1 = sha1_file($SHA1);
+        $sha1 = sha1_file($sha1);
         $hex = hex2bin($sha1);
-        $this->SHA1 = base64_encode($hex);
+        $this->sha1 = base64_encode($hex);
     }
 }

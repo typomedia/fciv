@@ -3,8 +3,8 @@
 namespace Typomedia\Fciv\Hasher;
 
 use Symfony\Component\Finder\Finder;
-use Typomedia\Fciv\Entity\FCIV;
-use Typomedia\Fciv\Entity\FILE_ENTRY;
+use Typomedia\Fciv\Entity\Fciv;
+use Typomedia\Fciv\Entity\FileEntry;
 use Typomedia\Fciv\Transformer\Transformer;
 
 /**
@@ -14,7 +14,7 @@ use Typomedia\Fciv\Transformer\Transformer;
 class Hasher implements HasherInterface
 {
     /**
-     * @var FILE_ENTRY[]
+     * @var FileEntry[]
      */
     public $entries = [];
 
@@ -25,7 +25,7 @@ class Hasher implements HasherInterface
 
     /**
      * @param string $path
-     * @return FILE_ENTRY[]
+     * @return FileEntry[]
      */
     public function setEntries(string $path): array
     {
@@ -33,10 +33,10 @@ class Hasher implements HasherInterface
         $finder->files()->in($path);
 
         foreach ($finder as $file) {
-            $entry = new FILE_ENTRY();
+            $entry = new FileEntry();
             $entry->setName($path . '/' . $file->getRelativePathname());
-            $entry->setMD5($file->getRealPath());
-            $entry->setSHA1($file->getRealPath());
+            $entry->setMd5($file->getRealPath());
+            $entry->setSha1($file->getRealPath());
 
             $this->entries[] = $entry;
         }
@@ -49,10 +49,11 @@ class Hasher implements HasherInterface
      */
     public function getResult(): string
     {
-        $fciv = new FCIV();
-        $fciv->FILE_ENTRY = $this->entries;
+        $fciv = new Fciv();
+        $fciv->setFileEntry($this->entries);
 
         $transformer = new Transformer();
+        $uppercase = $transformer->serializer->denormalize($fciv, Fciv::class, 'xml');
         return $transformer->serializer->serialize($fciv, 'xml', [
             'xml_version' => '1.0',
             'xml_encoding' => 'utf-8',

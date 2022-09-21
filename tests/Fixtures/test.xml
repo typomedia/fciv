@@ -1,83 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FCIV>
-  <FILE_ENTRY>
+  <fileentry>
     <name>src\Parser\ParserInterface.php</name>
-    <MD5>ckwLROQxNlf7xhtKSrc5CQ==</MD5>
-    <SHA1>rIhA0NFUbHeAnatLkrrEgeIQ/g4=</SHA1>
-  </FILE_ENTRY>
-  <FILE_ENTRY>
+    <md5>ckwLROQxNlf7xhtKSrc5CQ==</md5>
+    <sha1>rIhA0NFUbHeAnatLkrrEgeIQ/g4=</sha1>
+  </fileentry>
+  <fileentry>
     <name>src\Parser\Parser.php</name>
-    <MD5>fAa8LpPRgq1YKtkeHV5uUA==</MD5>
-    <SHA1>yorjbRjQgr1wkxAEK3O3Ch0v1D8=</SHA1>
-  </FILE_ENTRY>
-  <FILE_ENTRY>
+    <md5>je8Wz+WcQyc4RR6ImmoVZA==</md5>
+    <sha1>j3C0rkcQ31i5OluE4eNUCT/VaGQ=</sha1>
+  </fileentry>
+  <fileentry>
     <name>src\Converter\CamelCaseToSnakeCaseNameConverter.php</name>
-    <MD5>4IKWsZiacLch2iJhv/ZxHw==</MD5>
-    <SHA1>YRQKVGmQrjDuGbrUHDuezIl3e+M=</SHA1>
-  </FILE_ENTRY>
-  <FILE_ENTRY>
-    <name>src\Converter\PascalToCamelCaseConverter.php</name>
-    <MD5>rS5a6IWMt8uxxeaeTknUFQ==</MD5>
-    <SHA1>QPUI3myxeup+RUnti4ytgh5DIy8=</SHA1>
-  </FILE_ENTRY>
-  <FILE_ENTRY>
+    <md5>4IKWsZiacLch2iJhv/ZxHw==</md5>
+    <sha1>YRQKVGmQrjDuGbrUHDuezIl3e+M=</sha1>
+  </fileentry>
+  <fileentry>
+    <name>src\Converter\SnakeCaseToHumanCaseConverter.php</name>
+    <md5>zt195mgmgqUhYzn3MCXufQ==</md5>
+    <sha1>fmJsOOINWncJkoBLqlDtYuy/ov8=</sha1>
+  </fileentry>
+  <fileentry>
     <name>src\Converter\AttributesCamelCaseConverter.php</name>
-    <MD5>UrUO2tSV1CSXT3+YoQaiTQ==</MD5>
-    <SHA1>vuR2vUtwvtduZseGw77zNliqmgI=</SHA1>
-  </FILE_ENTRY>
-  <FILE_ENTRY>
+    <md5>UrUO2tSV1CSXT3+YoQaiTQ==</md5>
+    <sha1>vuR2vUtwvtduZseGw77zNliqmgI=</sha1>
+  </fileentry>
+  <fileentry>
+    <name>src\Converter\UpperCaseToCamelCaseConverter.php</name>
+    <md5>73bGJ1ZE0cF5lhPE5h5RUw==</md5>
+    <sha1>cUeY1KZlnCac4uhde4IJ6P4zUTg=</sha1>
+  </fileentry>
+  <fileentry>
     <name>src\Converter\SnakeCaseToPascalCaseConverter.php</name>
-    <MD5>aOuz7aIB9S2Ee0kFOEzBZg==</MD5>
-    <SHA1>SbxnLIUINiyrLbFLwreccB704Yc=</SHA1>
-  </FILE_ENTRY>
-  <FILE_ENTRY>
-    <name>src\Converter\SnakeCaseToCamelCaseNameConverter.php</name>
-    <MD5>4FwzIPAMXV8KxkBRK8H4Ag==</MD5>
-    <SHA1>8zbfQhJ0abFOsk0J0Q2kZCNq15A=</SHA1>
-  </FILE_ENTRY>
-  <FILE_ENTRY>
+    <md5>KR0G809wHlDV6mKmG7JTwA==</md5>
+    <sha1>ZF9af5ku4fAZup8YfD32EAGTG6s=</sha1>
+  </fileentry>
+  <fileentry>
+    <name>src\Converter\PascalCaseToCamelCaseConverter.php</name>
+    <md5>T3s8NLxaLf0sFTvPkAWBSw==</md5>
+    <sha1>4R5pMA+SwfyhrmIpXOqalmBC6MI=</sha1>
+  </fileentry>
+  <fileentry>
     <name>src\Verifier\VerifierInterface.php</name>
-    <MD5>0iDD8pmbBpjbBWFgGYIjEw==</MD5>
-    <SHA1>/atNfcX8elNW2dB/qVFKbmhzTSg=</SHA1>
-  </FILE_ENTRY>
-  <FILE_ENTRY>
+    <md5>0iDD8pmbBpjbBWFgGYIjEw==</md5>
+    <sha1>/atNfcX8elNW2dB/qVFKbmhzTSg=</sha1>
+  </fileentry>
+  <fileentry>
     <name>src\Verifier\Verifier.php</name>
-    <MD5>eOR6C12hQQ7FyG+9wXgadA==</MD5>
-    <SHA1>TymwIGMDM94SYBEW9ts56Wxz+Qs=</SHA1>
-  </FILE_ENTRY>
-  <FILE_ENTRY>
-    <name>src\Entity\FILE_ENTRY.php</name>
-    <MD5>3xa+nGPdVipENlZ6Sf3FmQ==</MD5>
-    <SHA1>QPt1NM+9sQkoUAAMfOgdvEI9zmI=</SHA1>
-  </FILE_ENTRY>
-  <FILE_ENTRY>
-    <name>src\Entity\FCIV.php</name>
-    <MD5>1syF+xvuFJEJDKiv2QEeBQ==</MD5>
-    <SHA1>bq4U+CrWyj3dVgeoJF3kx996YUA=</SHA1>
-  </FILE_ENTRY>
-  <FILE_ENTRY>
+    <md5>y1d31MOUcrq2Z/EfYMNTqA==</md5>
+    <sha1>XgOSZkBgXpz62X3QoEzuNUL04sg=</sha1>
+  </fileentry>
+  <fileentry>
+    <name>src\Entity\Fciv.php</name>
+    <md5>QoE1AFmlM15W+RXg8JyajQ==</md5>
+    <sha1>qCfLrC3NSiqn8kl5C0c/LXCpSW8=</sha1>
+  </fileentry>
+  <fileentry>
+    <name>src\Entity\FileEntry.php</name>
+    <md5>bJkDHZtSOVfN+Vafqf6Q7Q==</md5>
+    <sha1>9kgDRQfLJD56oZ+CcTzjjKKYSZc=</sha1>
+  </fileentry>
+  <fileentry>
     <name>src\Transformer\Transformer.php</name>
-    <MD5>T/KX2ewIZP8692eTogUNTg==</MD5>
-    <SHA1>22R6Gr4+vABab9Q/3rH/ds5YMLo=</SHA1>
-  </FILE_ENTRY>
-  <FILE_ENTRY>
+    <md5>L63Un20Z6Kol2M1muyDbCw==</md5>
+    <sha1>ZXMKFxMFkJiJ9J8+nRkwzogokKw=</sha1>
+  </fileentry>
+  <fileentry>
     <name>src\Exception\DumperException.php</name>
-    <MD5>gElsjf3nmSJeYSVNEOk1gQ==</MD5>
-    <SHA1>433NIEPv7GeWUyJFJgJT8HWn4W8=</SHA1>
-  </FILE_ENTRY>
-  <FILE_ENTRY>
+    <md5>Z/gr28GqPaqKslECKBF96w==</md5>
+    <sha1>KzHgcDKagFknpQpoC/aq1rWHDzM=</sha1>
+  </fileentry>
+  <fileentry>
     <name>src\Normalizer\CustomNormalizer.php</name>
-    <MD5>oRroyCeHAsf0lbMtER2hVA==</MD5>
-    <SHA1>t3pPlCPTZJNFRieszNaQyo6uwiE=</SHA1>
-  </FILE_ENTRY>
-  <FILE_ENTRY>
+    <md5>oRroyCeHAsf0lbMtER2hVA==</md5>
+    <sha1>t3pPlCPTZJNFRieszNaQyo6uwiE=</sha1>
+  </fileentry>
+  <fileentry>
     <name>src\Hasher\Hasher.php</name>
-    <MD5>yNCN09q8RzR5Qgky4HYPbw==</MD5>
-    <SHA1>FAj52bhEhGIp5raHmU1yBP18R3g=</SHA1>
-  </FILE_ENTRY>
-  <FILE_ENTRY>
+    <md5>UVfvI58vOCAnRxaGvUyD0w==</md5>
+    <sha1>RXqD4C0rHfof9ZFG2TYQlM5+n8c=</sha1>
+  </fileentry>
+  <fileentry>
     <name>src\Hasher\HasherInterface.php</name>
-    <MD5>AceKg1ZP9ATFSDmCoWD/NA==</MD5>
-    <SHA1>fz/Hx4shTobklfIAl/Ipq9Af+yM=</SHA1>
-  </FILE_ENTRY>
+    <md5>AceKg1ZP9ATFSDmCoWD/NA==</md5>
+    <sha1>fz/Hx4shTobklfIAl/Ipq9Af+yM=</sha1>
+  </fileentry>
 </FCIV>
