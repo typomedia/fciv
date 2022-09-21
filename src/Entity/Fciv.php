@@ -16,7 +16,7 @@ class Fciv
     /**
      * @return FileEntry[]
      */
-    public function getFileEntry()
+    public function getFileEntry(): array
     {
         return $this->fileEntry;
     }

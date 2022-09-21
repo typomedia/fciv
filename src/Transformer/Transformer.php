@@ -29,7 +29,7 @@ class Transformer
                 new UpperCaseToCamelCaseConverter(),
                 null,
                 new ReflectionExtractor()
-            ), new ArrayDenormalizer()],
+            )],
             [new XmlEncoder()]
         );
 
@@ -48,7 +48,6 @@ class Transformer
                 null,
                 new ReflectionExtractor()
             ),
-            new ArrayDenormalizer()
         ], [new XmlEncoder()]);
     }
 }

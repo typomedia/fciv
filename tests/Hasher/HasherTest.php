@@ -7,7 +7,7 @@ use Typomedia\Fciv\Hasher\Hasher;
 
 class HasherTest extends TestCase
 {
-    public function testCreate()
+    public function testHashSingle()
     {
         $hasher = new Hasher();
 
@@ -21,7 +21,7 @@ class HasherTest extends TestCase
 
     }
 
-    public function testCreate2()
+    public function testHashMultiple()
     {
         $hasher = new Hasher();
 
@@ -32,5 +32,18 @@ class HasherTest extends TestCase
         $this->assertNotEmpty($hasher->getResult());
 
         file_put_contents(__DIR__ . '/../Fixtures/src.xml', $hasher->getResult());
+    }
+
+
+    public function testHashVendor()
+    {
+        $hasher = new Hasher();
+
+        chdir(dirname(__DIR__, 2));
+        $hasher->setEntries('vendor');
+
+        $this->assertNotEmpty($hasher->getResult());
+
+        file_put_contents(__DIR__ . '/../Fixtures/vendor.xml', $hasher->getResult());
     }
 }

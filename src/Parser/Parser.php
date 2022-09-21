@@ -18,6 +18,7 @@ class Parser implements ParserInterface
     public function parse(string $data)
     {
         $transformer = new Transformer();
-        return $transformer->serializer->deserialize($data, Fciv::class, 'xml');
+        $result = $transformer->serializer->deserialize($data, Fciv::class, 'xml');
+        return $result;
     }
 }

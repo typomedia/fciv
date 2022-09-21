@@ -7,8 +7,8 @@
   </FILE_ENTRY>
   <FILE_ENTRY>
     <name>src\Parser\Parser.php</name>
-    <MD5>je8Wz+WcQyc4RR6ImmoVZA==</MD5>
-    <SHA1>j3C0rkcQ31i5OluE4eNUCT/VaGQ=</SHA1>
+    <MD5>yKSSPiCmC+iihD2pG4vj0w==</MD5>
+    <SHA1>CM5srfBihUfxnOpsyyrTZYMMS8Y=</SHA1>
   </FILE_ENTRY>
   <FILE_ENTRY>
     <name>src\Converter\CamelCaseToSnakeCaseNameConverter.php</name>
@@ -52,13 +52,13 @@
   </FILE_ENTRY>
   <FILE_ENTRY>
     <name>src\Verifier\Verifier.php</name>
-    <MD5>THKptrC1W3kx3tADni+YZA==</MD5>
-    <SHA1>lvcb1ZzK7pT0SNiN/XDcaMceiuI=</SHA1>
+    <MD5>m64hPeH7ugcjQ6y7Z2ygrg==</MD5>
+    <SHA1>5W4328rDJwgZ9MWirj7EE5ggGxA=</SHA1>
   </FILE_ENTRY>
   <FILE_ENTRY>
     <name>src\Entity\Fciv.php</name>
-    <MD5>QoE1AFmlM15W+RXg8JyajQ==</MD5>
-    <SHA1>qCfLrC3NSiqn8kl5C0c/LXCpSW8=</SHA1>
+    <MD5>Lu6qK0mGbiOYF7ubfuBRdA==</MD5>
+    <SHA1>3nu8ZBO0MBrAOQ+b8D0R2WAYZY0=</SHA1>
   </FILE_ENTRY>
   <FILE_ENTRY>
     <name>src\Entity\FileEntry.php</name>
@@ -67,8 +67,8 @@
   </FILE_ENTRY>
   <FILE_ENTRY>
     <name>src\Transformer\Transformer.php</name>
-    <MD5>59HhUkEP66hF0smSDsAlGA==</MD5>
-    <SHA1>ihYbSZC9+L+6BFH5XmwptRM1Ll8=</SHA1>
+    <MD5>u3BJfH3wNfAOxIOzoE6/hg==</MD5>
+    <SHA1>omFvJVXI1EQVMdPVfMgE6EsuXGk=</SHA1>
   </FILE_ENTRY>
   <FILE_ENTRY>
     <name>src\Exception\DumperException.php</name>
@@ -92,8 +92,8 @@
   </FILE_ENTRY>
   <FILE_ENTRY>
     <name>tests\Fixtures\test.xml</name>
-    <MD5>6z8e5rySh5wfgq/EZI5xog==</MD5>
-    <SHA1>3itLjVPiwESX6QhiPok1G+JtlZw=</SHA1>
+    <MD5>QRUenBkUP8cHhDaacSLIIg==</MD5>
+    <SHA1>+WfyY2hbalwuQoD/3WXUKCC5TZw=</SHA1>
   </FILE_ENTRY>
   <FILE_ENTRY>
     <name>tests\Fixtures\win.xml</name>
@@ -101,8 +101,13 @@
     <SHA1>/bPYBM4Q79ebS5Ow/kSBV1134rU=</SHA1>
   </FILE_ENTRY>
   <FILE_ENTRY>
+    <name>tests\Fixtures\vendor.xml</name>
+    <MD5>YagV3f5ssyqqskzJPV+p+w==</MD5>
+    <SHA1>fgjEo2Ly0qV4JQAlJPK6dUn3Q50=</SHA1>
+  </FILE_ENTRY>
+  <FILE_ENTRY>
     <name>tests\Fixtures\src.xml</name>
-    <MD5>SV+8shcY/m3L5ZW8rGgKiQ==</MD5>
-    <SHA1>l5yPqMl0Fja3k+BSajJWZx9q45w=</SHA1>
+    <MD5>Zj343BGr9XR9rRXpmBF0zQ==</MD5>
+    <SHA1>Bf9v7ekkJ/3YelZXbHP5qFHFsxc=</SHA1>
   </FILE_ENTRY>
 </FCIV>
