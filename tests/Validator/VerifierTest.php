@@ -10,7 +10,7 @@ class VerifierTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testVerifySimple()
+    public function testVerifySingle()
     {
         $input = __DIR__ . '/../Fixtures/test.xml';
 
