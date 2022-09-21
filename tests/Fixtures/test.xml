@@ -67,8 +67,8 @@
   </FILE_ENTRY>
   <FILE_ENTRY>
     <name>src\Transformer\Transformer.php</name>
-    <MD5>u3BJfH3wNfAOxIOzoE6/hg==</MD5>
-    <SHA1>omFvJVXI1EQVMdPVfMgE6EsuXGk=</SHA1>
+    <MD5>lhBGooLzRzs5LRdk9MU07Q==</MD5>
+    <SHA1>FX+m+ml7KKmveRgJ8UTX3gcjif8=</SHA1>
   </FILE_ENTRY>
   <FILE_ENTRY>
     <name>src\Exception\DumperException.php</name>
@@ -82,8 +82,8 @@
   </FILE_ENTRY>
   <FILE_ENTRY>
     <name>src\Hasher\Hasher.php</name>
-    <MD5>ka1tQht104b/bfumRzieJw==</MD5>
-    <SHA1>T2P/TCgj0fOqzb2El3c5Ig9KP04=</SHA1>
+    <MD5>z+OsL7AroH+f5C5nRSDWqg==</MD5>
+    <SHA1>AiSf5/0JCGae77+PPj2YnIOjf/Y=</SHA1>
   </FILE_ENTRY>
   <FILE_ENTRY>
     <name>src\Hasher\HasherInterface.php</name>

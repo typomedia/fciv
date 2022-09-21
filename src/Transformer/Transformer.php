@@ -26,7 +26,7 @@ class Transformer
         $serializer = new Serializer(
             [new ObjectNormalizer(
                 null,
-                new UpperCaseToCamelCaseConverter(),
+                new CamelCaseToUpperCaseConverter(),
                 null,
                 new ReflectionExtractor()
             )],
@@ -34,20 +34,5 @@ class Transformer
         );
 
         $this->serializer = $serializer;
-    }
-
-    /**
-     * @return Serializer
-     */
-    public function getSerializer()
-    {
-        return new Serializer([
-            new ObjectNormalizer(
-                null,
-                new CamelCaseToUpperCaseConverter(),
-                null,
-                new ReflectionExtractor()
-            ),
-        ], [new XmlEncoder()]);
     }
 }

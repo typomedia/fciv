@@ -67,8 +67,8 @@
   </FILE_ENTRY>
   <FILE_ENTRY>
     <name>src\Transformer\Transformer.php</name>
-    <MD5>u3BJfH3wNfAOxIOzoE6/hg==</MD5>
-    <SHA1>omFvJVXI1EQVMdPVfMgE6EsuXGk=</SHA1>
+    <MD5>lhBGooLzRzs5LRdk9MU07Q==</MD5>
+    <SHA1>FX+m+ml7KKmveRgJ8UTX3gcjif8=</SHA1>
   </FILE_ENTRY>
   <FILE_ENTRY>
     <name>src\Exception\DumperException.php</name>
@@ -82,8 +82,8 @@
   </FILE_ENTRY>
   <FILE_ENTRY>
     <name>src\Hasher\Hasher.php</name>
-    <MD5>ka1tQht104b/bfumRzieJw==</MD5>
-    <SHA1>T2P/TCgj0fOqzb2El3c5Ig9KP04=</SHA1>
+    <MD5>z+OsL7AroH+f5C5nRSDWqg==</MD5>
+    <SHA1>AiSf5/0JCGae77+PPj2YnIOjf/Y=</SHA1>
   </FILE_ENTRY>
   <FILE_ENTRY>
     <name>src\Hasher\HasherInterface.php</name>
@@ -92,8 +92,8 @@
   </FILE_ENTRY>
   <FILE_ENTRY>
     <name>tests\Fixtures\test.xml</name>
-    <MD5>QRUenBkUP8cHhDaacSLIIg==</MD5>
-    <SHA1>+WfyY2hbalwuQoD/3WXUKCC5TZw=</SHA1>
+    <MD5>/f/3vQoBcAdBZLGOtgVFxg==</MD5>
+    <SHA1>TKparn7lyIpOLjitmgBIoox0B7A=</SHA1>
   </FILE_ENTRY>
   <FILE_ENTRY>
     <name>tests\Fixtures\win.xml</name>
@@ -107,7 +107,7 @@
   </FILE_ENTRY>
   <FILE_ENTRY>
     <name>tests\Fixtures\src.xml</name>
-    <MD5>phj1bVa4tuiVQJlv8px6eg==</MD5>
-    <SHA1>7sDmmr06mQphMutg5M7CYIKqYUc=</SHA1>
+    <MD5>L9zHjJBhkjw4INVnWAQlxg==</MD5>
+    <SHA1>GAgxr2VncVF1JNQVCKLW8F7wfUE=</SHA1>
   </FILE_ENTRY>
 </FCIV>
