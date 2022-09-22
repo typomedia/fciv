@@ -32,9 +32,9 @@ class TransformerTest extends TestCase
     {
         $transformer = new Transformer();
 
-        $data = file_get_contents(__DIR__ . '/../Fixtures/test.xml');
+        $data = file_get_contents(__DIR__ . '/../Fixtures/win.xml');
         $result = $transformer->serializer->deserialize($data,Fciv::class,'xml');
 
-        $this->assertEquals('src\Parser\ParserInterface.php', $result->fileEntry[0]['name']);
+        $this->assertEquals('vendor\autoload.php', $result->fileEntry[0]['name']);
     }
 }
