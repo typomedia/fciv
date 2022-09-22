@@ -60,4 +60,15 @@ class Hasher implements HasherInterface
             'xml_format_output' => true
         ]);
     }
+
+    /**
+     * @return Fciv
+     */
+    public function getObject(): Fciv
+    {
+        $fciv = new Fciv();
+        $fciv->setFileEntry($this->entries);
+
+        return $fciv;
+    }
 }

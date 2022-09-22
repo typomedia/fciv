@@ -46,6 +46,11 @@
     <SHA1>4R5pMA+SwfyhrmIpXOqalmBC6MI=</SHA1>
   </FILE_ENTRY>
   <FILE_ENTRY>
+    <name>src\Converter\AttributesConverter.php</name>
+    <MD5>L+PSIAdv3JpuhSRy3EHH4Q==</MD5>
+    <SHA1>Xry0D4vVtkcc4Xi6RoasDNTMiSo=</SHA1>
+  </FILE_ENTRY>
+  <FILE_ENTRY>
     <name>src\Verifier\VerifierInterface.php</name>
     <MD5>0iDD8pmbBpjbBWFgGYIjEw==</MD5>
     <SHA1>/atNfcX8elNW2dB/qVFKbmhzTSg=</SHA1>
@@ -56,9 +61,19 @@
     <SHA1>5W4328rDJwgZ9MWirj7EE5ggGxA=</SHA1>
   </FILE_ENTRY>
   <FILE_ENTRY>
+    <name>src\Entity\Inner.php</name>
+    <MD5>j1525GHUBAn5gmgKgMXBYg==</MD5>
+    <SHA1>nmTf/zgU8xhRNS9Ox0VN4qtA63Y=</SHA1>
+  </FILE_ENTRY>
+  <FILE_ENTRY>
     <name>src\Entity\Fciv.php</name>
     <MD5>Lu6qK0mGbiOYF7ubfuBRdA==</MD5>
     <SHA1>3nu8ZBO0MBrAOQ+b8D0R2WAYZY0=</SHA1>
+  </FILE_ENTRY>
+  <FILE_ENTRY>
+    <name>src\Entity\Outer.php</name>
+    <MD5>PeYHlbouMwgjBHOspspNHw==</MD5>
+    <SHA1>ZQcIM5CTKyWexJ5dLjkbr8ClkV8=</SHA1>
   </FILE_ENTRY>
   <FILE_ENTRY>
     <name>src\Entity\FileEntry.php</name>
@@ -67,8 +82,8 @@
   </FILE_ENTRY>
   <FILE_ENTRY>
     <name>src\Transformer\Transformer.php</name>
-    <MD5>lhBGooLzRzs5LRdk9MU07Q==</MD5>
-    <SHA1>FX+m+ml7KKmveRgJ8UTX3gcjif8=</SHA1>
+    <MD5>YZe8vtRaLMTfAm+M/vgRrA==</MD5>
+    <SHA1>7ZYO9VKoeJ6ikIzg9IarwbJwqyI=</SHA1>
   </FILE_ENTRY>
   <FILE_ENTRY>
     <name>src\Exception\DumperException.php</name>
@@ -82,8 +97,8 @@
   </FILE_ENTRY>
   <FILE_ENTRY>
     <name>src\Hasher\Hasher.php</name>
-    <MD5>z+OsL7AroH+f5C5nRSDWqg==</MD5>
-    <SHA1>AiSf5/0JCGae77+PPj2YnIOjf/Y=</SHA1>
+    <MD5>oq3lIzTEzoV3W4v3PBF9Qw==</MD5>
+    <SHA1>xKWj5vL0m6omgnVkW5kIQ/8uoaM=</SHA1>
   </FILE_ENTRY>
   <FILE_ENTRY>
     <name>src\Hasher\HasherInterface.php</name>

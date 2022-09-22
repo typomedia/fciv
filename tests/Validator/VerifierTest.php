@@ -2,13 +2,14 @@
 
 namespace Typomedia\Fciv\Tests\Validator;
 
+use Exception;
 use Typomedia\Fciv\Verifier\Verifier;
 use PHPUnit\Framework\TestCase;
 
 class VerifierTest extends TestCase
 {
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testVerifySingle()
     {
