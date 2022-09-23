@@ -10,7 +10,6 @@ class TransformerTest extends TestCase
 {
     public function testNormalize()
     {
-        //$this->markTestSkipped('not impl yet');
         $transformer = new Transformer();
 
         $data = $transformer->serializer->denormalize(
