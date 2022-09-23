@@ -50,7 +50,7 @@ class Hasher implements HasherInterface
     public function getResult(): string
     {
         $fciv = new Fciv();
-        $fciv->setFileEntry($this->entries);
+        $fciv->setFileEntries($this->entries);
 
         $transformer = new Transformer();
         return $transformer->serializer->serialize($fciv, 'xml', [
@@ -67,7 +67,7 @@ class Hasher implements HasherInterface
     public function getObject(): Fciv
     {
         $fciv = new Fciv();
-        $fciv->setFileEntry($this->entries);
+        $fciv->setFileEntries($this->entries);
 
         return $fciv;
     }

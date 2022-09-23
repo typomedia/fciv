@@ -16,7 +16,7 @@ class Fciv
     /**
      * @return FileEntry[]
      */
-    public function getFileEntry(): array
+    public function getFileEntries(): array
     {
         return $this->fileEntry;
     }
@@ -24,8 +24,16 @@ class Fciv
     /**
      * @param FileEntry[] $fileEntry
      */
-    public function setFileEntry(array $fileEntry)
+    public function setFileEntries(array $fileEntry): void
     {
         $this->fileEntry = $fileEntry;
+    }
+
+    /**
+     * @param FileEntry $fileEntry
+     */
+    public function addFileEntry(FileEntry $fileEntry)
+    {
+        $this->fileEntry[] = $fileEntry;
     }
 }

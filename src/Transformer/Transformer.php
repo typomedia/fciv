@@ -4,6 +4,7 @@ namespace Typomedia\Fciv\Transformer;
 
 use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 use Typomedia\Fciv\Converter\CamelCaseToUpperCaseConverter;
@@ -27,7 +28,7 @@ class Transformer
                 new CamelCaseToUpperCaseConverter(),
                 null,
                 new ReflectionExtractor()
-            )],
+            ), new ArrayDenormalizer()],
             [new XmlEncoder()]
         );
 
