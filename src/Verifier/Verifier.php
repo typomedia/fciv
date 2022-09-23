@@ -27,11 +27,11 @@ class Verifier implements VerifierInterface
         $files = $parser->parse($data);
 
         foreach ($files->getFileEntries() as $file) {
-            $filename = $path ? $path . '/' . $file['name'] : $file['name'];
+            $filename = $path ? $path . '/' . $file->name : $file->name;
             $md5 = md5_file(str_replace('\\', DIRECTORY_SEPARATOR, $filename));
 
-            if ($md5 !== bin2hex(base64_decode($file['MD5']))) {
-                throw new Exception(' MD5: ' . $file['MD5'] . ' mismatch for file: ' . $filename);
+            if ($md5 !== bin2hex(base64_decode($file->md5))) {
+                throw new Exception(' MD5: ' . $file->md5 . ' mismatch for file: ' . $filename);
             }
         }
 

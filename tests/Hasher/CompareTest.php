@@ -23,7 +23,6 @@ class CompareTest extends TestCase
         $transformer = new Transformer();
         $xml = $hasher->getResult();
 
-        // shit happens here: $actual->fileEntry is just an numeric array instead of an array of FileEntry objects
         $actual = $transformer->serializer->deserialize(
             $xml,
             Fciv::class,

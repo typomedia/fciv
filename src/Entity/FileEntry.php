@@ -32,9 +32,17 @@ class FileEntry
     }
 
     /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
      * @param string $md5
      */
-    public function setMd5(string $md5): void
+    public function setMd5Hash(string $md5): void
     {
         $md5 = md5_file($md5);
         $hex = hex2bin($md5);
@@ -44,7 +52,7 @@ class FileEntry
     /**
      * @param string $sha1
      */
-    public function setSha1(string $sha1): void
+    public function setSha1Hash(string $sha1): void
     {
         $sha1 = sha1_file($sha1);
         $hex = hex2bin($sha1);

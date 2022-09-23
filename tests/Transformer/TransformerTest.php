@@ -10,22 +10,23 @@ class TransformerTest extends TestCase
 {
     public function testNormalize()
     {
+        //$this->markTestSkipped('not impl yet');
         $transformer = new Transformer();
 
         $data = $transformer->serializer->denormalize(
             ['FILE_ENTRY' =>
-                [
+                [[
                     'name' => 'foo',
                     'md5' => 'bar',
                     'sha1' => 'baz'
-                ]
+                ]]
             ],
             Fciv::class
         );
 
-        $this->assertEquals('foo', $data->fileEntry['name']);
-        $this->assertEquals('bar', $data->fileEntry['md5']);
-        $this->assertEquals('baz', $data->fileEntry['sha1']);
+        $this->assertEquals('foo', $data->fileEntry[0]->name);
+        $this->assertEquals('bar', $data->fileEntry[0]->md5);
+        $this->assertEquals('baz', $data->fileEntry[0]->sha1);
     }
 
     public function testDeserialize()
@@ -35,6 +36,6 @@ class TransformerTest extends TestCase
         $data = file_get_contents(__DIR__ . '/../Fixtures/win.xml');
         $result = $transformer->serializer->deserialize($data,Fciv::class,'xml');
 
-        $this->assertEquals('vendor\autoload.php', $result->fileEntry[0]['name']);
+        $this->assertEquals('vendor\autoload.php', $result->fileEntry[0]->name);
     }
 }

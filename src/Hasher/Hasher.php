@@ -35,8 +35,8 @@ class Hasher implements HasherInterface
         foreach ($finder as $file) {
             $entry = new FileEntry();
             $entry->setName($path . '/' . $file->getRelativePathname());
-            $entry->setMd5($file->getRealPath());
-            $entry->setSha1($file->getRealPath());
+            $entry->setMd5Hash($file->getRealPath());
+            $entry->setSha1Hash($file->getRealPath());
 
             $this->entries[] = $entry;
         }
