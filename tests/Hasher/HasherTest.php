@@ -52,7 +52,7 @@ class HasherTest extends TestCase
 
     public function testHashVendor()
     {
-        $hasher = new Hasher();
+        $hasher = new Hasher('md5', ['*.json', '*.xml', '*.yml']);
         $hasher->setEntries('vendor');
 
         $result = $hasher->getResult();

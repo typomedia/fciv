@@ -16,9 +16,20 @@ class Hasher implements HasherInterface
     /**
      * @var string $algorithm
      */
-    public function __construct(string $algorithm = 'md5')
+    private string $algorithm;
+
+    /**
+     * @var array $types
+     */
+    private array $types;
+
+    /**
+     * @var string $algorithm
+     */
+    public function __construct(string $algorithm = 'md5', array $types = [])
     {
         $this->algorithm = $algorithm;
+        $this->types = $types;
     }
 
     /**
@@ -39,7 +50,7 @@ class Hasher implements HasherInterface
     public function setEntries(string $path, array $exclude = []): array
     {
         $finder = new Finder();
-        $finder->files()->in($path)->exclude($exclude);
+        $finder->files()->in($path)->name($this->types)->exclude($exclude);
 
         foreach ($finder as $file) {
             $entry = new FileEntry();
