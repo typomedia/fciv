@@ -8,6 +8,11 @@ use PHPUnit\Framework\TestCase;
 
 class VerifierTest extends TestCase
 {
+    public function setUp()
+    {
+        chdir(dirname(__DIR__, 2));
+    }
+
     /**
      * @throws Exception
      */
@@ -16,7 +21,6 @@ class VerifierTest extends TestCase
         $input = __DIR__ . '/../Fixtures/test.xml';
 
         $validator = new Verifier();
-        chdir(dirname(__DIR__, 2));
         $fciv = $validator->verify(file_get_contents($input));
 
         $this->assertTrue($fciv);
@@ -27,7 +31,6 @@ class VerifierTest extends TestCase
         $input = __DIR__ . '/../Fixtures/vendor.xml';
 
         $validator = new Verifier();
-        chdir(dirname(__DIR__, 2));
         $fciv = $validator->verify(file_get_contents($input));
 
         $this->assertTrue($fciv);
