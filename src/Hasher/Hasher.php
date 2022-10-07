@@ -88,7 +88,8 @@ class Hasher implements HasherInterface
             'xml_version' => '1.0',
             'xml_encoding' => 'utf-8',
             'xml_root_node_name' => 'FCIV',
-            'xml_format_output' => true
+            'xml_format_output' => true,
+            'remove_empty_tags' => true,
         ]);
     }
 
