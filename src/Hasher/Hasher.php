@@ -25,13 +25,14 @@ class Hasher implements HasherInterface
 
     /**
      * @param string $path
+     * @param array $exclude
      * @return FileEntry[]
      */
-    public function setEntries(string $path): array
+    public function setEntries(string $path, array $exclude = []): array
     {
         $finder = new Finder();
-        $finder->files()->in($path);
-
+        $finder->files()->in($path)->exclude($exclude);
+$count = $finder->count();
         foreach ($finder as $file) {
             $entry = new FileEntry();
             $entry->setName($path . '/' . $file->getRelativePathname());
@@ -50,7 +51,7 @@ class Hasher implements HasherInterface
     public function getResult(): string
     {
         $fciv = new Fciv();
-        $fciv->setFileEntries($this->entries);
+        $fciv->fileEntry = $this->entries;
 
         $transformer = new Transformer();
         return $transformer->serializer->serialize($fciv, 'xml', [
@@ -67,7 +68,7 @@ class Hasher implements HasherInterface
     public function getObject(): Fciv
     {
         $fciv = new Fciv();
-        $fciv->setFileEntries($this->entries);
+        $fciv->fileEntry = $this->entries;
 
         return $fciv;
     }

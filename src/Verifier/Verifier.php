@@ -26,7 +26,7 @@ class Verifier implements VerifierInterface
         /** @var Fciv $files */
         $files = $parser->parse($data);
 
-        foreach ($files->getFileEntries() as $file) {
+        foreach ($files->fileEntry as $file) {
             $filename = $path ? $path . '/' . $file->name : $file->name;
             $md5 = md5_file(str_replace('\\', DIRECTORY_SEPARATOR, $filename));
 

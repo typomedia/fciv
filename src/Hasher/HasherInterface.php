@@ -10,7 +10,8 @@ interface HasherInterface
 {
     /**
      * @param string $path
+     * @param array $exclude
      * @return mixed
      */
-    public function setEntries(string $path);
+    public function setEntries(string $path, array $exclude);
 }
