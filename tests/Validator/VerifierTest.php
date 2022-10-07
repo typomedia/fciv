@@ -20,12 +20,15 @@ class VerifierTest extends TestCase
     {
         $input = __DIR__ . '/../Fixtures/test.xml';
 
-        $validator = new Verifier();
+        $validator = new Verifier('sha1');
         $fciv = $validator->verify(file_get_contents($input));
 
         $this->assertTrue($fciv);
     }
 
+    /**
+     * @throws Exception
+     */
     public function testVerifyVendor()
     {
         $input = __DIR__ . '/../Fixtures/vendor.xml';

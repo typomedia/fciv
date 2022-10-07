@@ -14,7 +14,7 @@ class HasherTest extends TestCase
 
     public function testHashSingle()
     {
-        $hasher = new Hasher();
+        $hasher = new Hasher('sha1');
         $hasher->setEntries('src');
 
         $result = $hasher->getResult();

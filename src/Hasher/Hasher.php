@@ -14,6 +14,14 @@ use Typomedia\Fciv\Transformer\Transformer;
 class Hasher implements HasherInterface
 {
     /**
+     * @var string $algorithm
+     */
+    public function __construct(string $algorithm = 'md5')
+    {
+        $this->algorithm = $algorithm;
+    }
+
+    /**
      * @var FileEntry[]
      */
     public $entries = [];
@@ -32,12 +40,23 @@ class Hasher implements HasherInterface
     {
         $finder = new Finder();
         $finder->files()->in($path)->exclude($exclude);
-$count = $finder->count();
+
         foreach ($finder as $file) {
             $entry = new FileEntry();
             $entry->setName($path . '/' . $file->getRelativePathname());
-            $entry->setMd5Hash($file->getRealPath());
-            $entry->setSha1Hash($file->getRealPath());
+
+            switch ($this->algorithm) {
+                case 'sha1':
+                    $entry->setSha1Hash($file->getRealPath());
+                    break;
+                case 'both':
+                    $entry->setMd5Hash($file->getRealPath());
+                    $entry->setSha1Hash($file->getRealPath());
+                    break;
+                default:
+                    $entry->setMd5Hash($file->getRealPath());
+                    break;
+            }
 
             $this->entries[] = $entry;
         }
