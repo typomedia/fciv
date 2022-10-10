@@ -43,6 +43,19 @@ class VerifierTest extends TestCase
     /**
      * @throws Exception
      */
+    public function testVerifyBoth()
+    {
+        $input = __DIR__ . '/../Fixtures/finder.xml';
+
+        $validator = new Verifier('both');
+        $fciv = $validator->verify(file_get_contents($input));
+
+        $this->assertTrue($fciv);
+    }
+
+    /**
+     * @throws Exception
+     */
     public function testVerifyException()
     {
         $input = __DIR__ . '/../Fixtures/win.xml';
