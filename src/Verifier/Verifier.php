@@ -17,17 +17,17 @@ class Verifier implements VerifierInterface
     /**
      * @var string $algo
      */
-    private string $algo;
+    private $algo;
 
     /**
      * @var string $file
      */
-    private string $file;
+    private $file;
 
     /**
      * @var array $errors
      */
-    private array $errors = [];
+    private $errors = [];
 
     /**
      * @var string $algo

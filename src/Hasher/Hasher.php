@@ -16,12 +16,12 @@ class Hasher implements HasherInterface
     /**
      * @var string $algo
      */
-    private string $algo;
+    private $algo;
 
     /**
      * @var array $types
      */
-    private array $types;
+    private $types;
 
     /**
      * @param string $algo
