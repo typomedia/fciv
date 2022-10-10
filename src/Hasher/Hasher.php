@@ -14,9 +14,9 @@ use Typomedia\Fciv\Transformer\Transformer;
 class Hasher implements HasherInterface
 {
     /**
-     * @var string $algorithm
+     * @var string $algo
      */
-    private string $algorithm;
+    private string $algo;
 
     /**
      * @var array $types
@@ -24,11 +24,12 @@ class Hasher implements HasherInterface
     private array $types;
 
     /**
-     * @var string $algorithm
+     * @param string $algo
+     * @param array $types
      */
-    public function __construct(string $algorithm = 'md5', array $types = [])
+    public function __construct(string $algo = 'md5', array $types = [])
     {
-        $this->algorithm = $algorithm;
+        $this->algo = $algo;
         $this->types = $types;
     }
 
@@ -50,13 +51,20 @@ class Hasher implements HasherInterface
     public function setEntries(string $path, array $exclude = []): array
     {
         $finder = new Finder();
-        $finder->files()->in($path)->name($this->types)->exclude($exclude);
+        $finder->files()->in($path)->name($this->types)->exclude($exclude); // ecxlude() only works with directories
+
+        // ability to exclude files with relative path
+        foreach ($exclude as $item) {
+            if (is_file($path . '/' . $item)) {
+                $finder->notPath($item);
+            }
+        }
 
         foreach ($finder as $file) {
             $entry = new FileEntry();
             $entry->setName($path . '/' . $file->getRelativePathname());
 
-            switch ($this->algorithm) {
+            switch ($this->algo) {
                 case 'sha1':
                     $entry->setSha1Hash($file->getRealPath());
                     break;
