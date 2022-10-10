@@ -19,6 +19,7 @@ class HasherTest extends TestCase
 
         $result = $hasher->getResult();
         $this->assertNotEmpty($result);
+        $this->assertRegExp('/<SHA1>.{28}<\/SHA1>/', $result);
 
         file_put_contents(__DIR__ . '/../Fixtures/test.xml', $result);
     }
@@ -32,6 +33,7 @@ class HasherTest extends TestCase
         file_put_contents(__DIR__ . '/../Fixtures/exclude.xml', $result);
 
         $this->assertNotEmpty($result);
+        $this->assertRegExp('/<MD5>.{24}<\/MD5>/', $result);
         $this->assertNotContains('src\Entity\FileEntry.php', $result);
         $this->assertNotContains('src\Entity\Fciv.php', $result);
         $this->assertNotContains('src\Converter\UpperCaseToCamelCaseConverter.php', $result);
@@ -47,6 +49,7 @@ class HasherTest extends TestCase
 
         $result = $hasher->getResult();
         $this->assertNotEmpty($result);
+        $this->assertRegExp('/<MD5>.{24}<\/MD5>/', $result);
 
         file_put_contents(__DIR__ . '/../Fixtures/multi.xml', $result);
     }
@@ -58,6 +61,7 @@ class HasherTest extends TestCase
 
         $result = $hasher->getResult();
         $this->assertNotEmpty($result);
+        $this->assertRegExp('/<MD5>.{24}<\/MD5>/', $result);
         $this->assertNotContains('vendor\phpunit\phpunit\composer.json', $result);
 
         file_put_contents(__DIR__ . '/../Fixtures/vendor.xml', $result);
@@ -74,8 +78,8 @@ class HasherTest extends TestCase
 
         $result = $hasher->getResult();
         $this->assertNotEmpty($result);
-        $this->assertContains('<MD5>', $result);
-        $this->assertContains('<SHA1>', $result);
+        $this->assertRegExp('/<MD5>.{24}<\/MD5>/', $result);
+        $this->assertRegExp('/<SHA1>.{28}<\/SHA1>/', $result);
         $this->assertNotContains('vendor\symfony\finder\Iterator', $result);
         $this->assertNotContains('Comparator\DateComparator.php', $result);
         $this->assertNotContains('Comparator\NumberComparator.php', $result);
