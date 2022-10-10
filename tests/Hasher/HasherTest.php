@@ -65,7 +65,7 @@ class HasherTest extends TestCase
 
     public function testHashNormalizePath()
     {
-        $hasher = new Hasher('md5', ['*.php']);
+        $hasher = new Hasher('both', ['*.php']);
         $hasher->setEntries('vendor\symfony\finder', [
             'Iterator',
             'Comparator\DateComparator.php',
@@ -74,6 +74,8 @@ class HasherTest extends TestCase
 
         $result = $hasher->getResult();
         $this->assertNotEmpty($result);
+        $this->assertContains('<MD5>', $result);
+        $this->assertContains('<SHA1>', $result);
         $this->assertNotContains('vendor\symfony\finder\Iterator', $result);
         $this->assertNotContains('Comparator\DateComparator.php', $result);
         $this->assertNotContains('Comparator\NumberComparator.php', $result);
