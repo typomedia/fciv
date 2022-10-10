@@ -6,6 +6,10 @@ use Exception;
 use Throwable;
 use Typomedia\Fciv\Entity\Error;
 
+/**
+ * Class InvalidHashException
+ * @package Typomedia\Fciv
+ */
 class InvalidHashException extends Exception
 {
     protected $message;
