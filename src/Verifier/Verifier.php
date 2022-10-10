@@ -3,8 +3,9 @@
 namespace Typomedia\Fciv\Verifier;
 
 use Exception;
+use Typomedia\Fciv\Entity\Error;
 use Typomedia\Fciv\Entity\Fciv;
-use Typomedia\Fciv\Entity\FileEntry;
+use Typomedia\Fciv\Exception\InvalidHashException;
 use Typomedia\Fciv\Parser\Parser;
 
 /**
@@ -14,11 +15,26 @@ use Typomedia\Fciv\Parser\Parser;
 class Verifier implements VerifierInterface
 {
     /**
-     * @var string $algorithm
+     * @var string $algo
      */
-    public function __construct(string $algorithm = 'md5')
+    private string $algo;
+
+    /**
+     * @var string $file
+     */
+    private string $file;
+
+    /**
+     * @var array $errors
+     */
+    private array $errors = [];
+
+    /**
+     * @var string $algo
+     */
+    public function __construct(string $algo = 'md5')
     {
-        $this->algorithm = $algorithm;
+        $this->algo = $algo;
     }
 
     /**
@@ -35,29 +51,73 @@ class Verifier implements VerifierInterface
         $files = $parser->parse($data);
 
         foreach ($files->fileEntry as $file) {
-            $filename = $path ? $path . '/' . $file->name : $file->name;
+            // win directory sparator for compatibility
+            $this->file = $path ? $path . '\\' . $file->name : $file->name;
 
-            switch ($this->algorithm) {
+            switch ($this->algo) {
                 case 'sha1':
-                    $sha1 = sha1_file(str_replace('\\', DIRECTORY_SEPARATOR, $filename));
-                    if ($sha1 !== bin2hex(base64_decode($file->sha1))) {
-                        throw new Exception(' SHA-1: ' . $file->sha1 . ' mismatch for file: ' . $filename);
-                    }
+                    $expected = $this->decode($file->sha1);
+                    $this->compare($this->hash(), $expected);
                     break;
                 case 'both':
-                    $sha1 = sha1_file(str_replace('\\', DIRECTORY_SEPARATOR, $filename));
-                    $md5 = md5_file(str_replace('\\', DIRECTORY_SEPARATOR, $filename));
+                    $this->algo = 'sha1';
+                    $expected = $this->decode($file->sha1);
+                    $this->compare($this->hash(), $expected);
+                    $this->algo = 'md5';
+                    $expected = $this->decode($file->md5);
+                    $this->compare($this->hash(), $expected);
                     break;
                 default:
-                    $md5 = md5_file(str_replace('\\', DIRECTORY_SEPARATOR, $filename));
-                    if ($md5 !== bin2hex(base64_decode($file->md5))) {
-                        throw new Exception(' MD5: ' . $file->md5 . ' mismatch for file: ' . $filename);
-                    }
+                    $expected = $this->decode($file->md5);
+                    $this->compare($this->hash(), $expected);
                     break;
             }
-
         }
 
+        if ($this->errors) {
+            throw new InvalidHashException($this->errors);
+        }
+
+        return true;
+    }
+
+    /**
+     * @param string $data
+     * @return string
+     */
+    protected function decode(string $data): string
+    {
+        return bin2hex(base64_decode($data));
+    }
+
+    /**
+     * @return string
+     */
+    protected function hash(): string
+    {
+        // replace win directory separator in $filename on linux
+        $file = str_replace('\\', '/', $this->file);
+        if (!file_exists($file)) {
+            return false;
+        }
+        return hash_file($this->algo, $file);
+    }
+
+    /**
+     * @param string $hash
+     * @param string $expected
+     * @return bool
+     */
+    protected function compare(string $hash, string $expected): bool
+    {
+        if ($hash !== $expected) {
+            $error = new Error();
+            $error->file = $this->file;
+            $error->algo = $this->algo;
+            $error->hash = $expected;
+
+            $this->errors[] = $error;
+        }
         return true;
     }
 }

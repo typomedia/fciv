@@ -26,7 +26,7 @@ class HasherTest extends TestCase
     public function testHashExclude()
     {
         $hasher = new Hasher();
-        $hasher->setEntries('src', ['Converter', 'Entity']);
+        $hasher->setEntries('src', ['Converter', 'Entity', 'Exception/InvalidHashException.php']);
 
         $result = $hasher->getResult();
         $this->assertNotEmpty($hasher->getResult());
@@ -53,10 +53,11 @@ class HasherTest extends TestCase
     public function testHashVendor()
     {
         $hasher = new Hasher('md5', ['*.json', '*.xml', '*.yml']);
-        $hasher->setEntries('vendor');
+        $hasher->setEntries('vendor', ['phpunit/phpunit/composer.json']);
 
         $result = $hasher->getResult();
         $this->assertNotEmpty($result);
+        $this->assertNotContains('vendor\phpunit\phpunit\composer.json', $result);
 
         file_put_contents(__DIR__ . '/../Fixtures/vendor.xml', $result);
     }

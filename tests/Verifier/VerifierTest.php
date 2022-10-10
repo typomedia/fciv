@@ -1,8 +1,9 @@
 <?php
 
-namespace Typomedia\Fciv\Tests\Validator;
+namespace Typomedia\Fciv\Tests\Verifier;
 
 use Exception;
+use Typomedia\Fciv\Exception\InvalidHashException;
 use Typomedia\Fciv\Verifier\Verifier;
 use PHPUnit\Framework\TestCase;
 
@@ -37,5 +38,18 @@ class VerifierTest extends TestCase
         $fciv = $validator->verify(file_get_contents($input));
 
         $this->assertTrue($fciv);
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function testVerifyException()
+    {
+        $input = __DIR__ . '/../Fixtures/win.xml';
+
+        $this->expectException(InvalidHashException::class);
+
+        $validator = new Verifier();
+        $validator->verify(file_get_contents($input));
     }
 }
