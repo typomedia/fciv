@@ -21,8 +21,8 @@ class VerifierTest extends TestCase
     {
         $input = __DIR__ . '/../Fixtures/vendor.xml';
 
-        $validator = new Verifier();
-        $fciv = $validator->verify(file_get_contents($input));
+        $verifier = new Verifier();
+        $fciv = $verifier->verify(file_get_contents($input));
 
         $this->assertTrue($fciv);
     }
@@ -34,8 +34,8 @@ class VerifierTest extends TestCase
     {
         $input = __DIR__ . '/../Fixtures/test.xml';
 
-        $validator = new Verifier('sha1');
-        $fciv = $validator->verify(file_get_contents($input));
+        $verifier = new Verifier('sha1');
+        $fciv = $verifier->verify(file_get_contents($input));
 
         $this->assertTrue($fciv);
     }
@@ -47,8 +47,8 @@ class VerifierTest extends TestCase
     {
         $input = __DIR__ . '/../Fixtures/finder.xml';
 
-        $validator = new Verifier('both');
-        $fciv = $validator->verify(file_get_contents($input));
+        $verifier = new Verifier('both');
+        $fciv = $verifier->verify(file_get_contents($input));
 
         $this->assertTrue($fciv);
     }
@@ -62,7 +62,7 @@ class VerifierTest extends TestCase
 
         $this->expectException(InvalidHashException::class);
 
-        $validator = new Verifier();
-        $validator->verify(file_get_contents($input));
+        $verifier = new Verifier();
+        $verifier->verify(file_get_contents($input));
     }
 }
