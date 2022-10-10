@@ -65,7 +65,7 @@ class HasherTest extends TestCase
 
     public function testHashNormalizePath()
     {
-        $hasher = new Hasher('md5');
+        $hasher = new Hasher('md5', ['*.php']);
         $hasher->setEntries('vendor\symfony\finder', [
             'Iterator',
             'Comparator\DateComparator.php',
