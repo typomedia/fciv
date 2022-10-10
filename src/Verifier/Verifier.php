@@ -6,6 +6,7 @@ use Exception;
 use Typomedia\Fciv\Entity\Error;
 use Typomedia\Fciv\Entity\Fciv;
 use Typomedia\Fciv\Exception\InvalidHashException;
+use Typomedia\Fciv\Normalizer\Path;
 use Typomedia\Fciv\Parser\Parser;
 
 /**
@@ -96,7 +97,7 @@ class Verifier implements VerifierInterface
     protected function hash(): string
     {
         // replace win directory separator in $filename on linux
-        $file = str_replace('\\', '/', $this->file);
+        $file = Path::normalize($this->file);
         if (!file_exists($file)) {
             return false;
         }

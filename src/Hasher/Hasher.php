@@ -5,6 +5,7 @@ namespace Typomedia\Fciv\Hasher;
 use Symfony\Component\Finder\Finder;
 use Typomedia\Fciv\Entity\Fciv;
 use Typomedia\Fciv\Entity\FileEntry;
+use Typomedia\Fciv\Normalizer\Path;
 use Typomedia\Fciv\Transformer\Transformer;
 
 /**
@@ -51,6 +52,8 @@ class Hasher implements HasherInterface
     public function setEntries(string $path, array $exclude = []): array
     {
         $finder = new Finder();
+        $path = Path::normalize($path);
+        $exclude = array_map('\Typomedia\Fciv\Normalizer\Path::normalize', $exclude);
         $finder->files()->in($path)->name($this->types)->exclude($exclude); // ecxlude() only works with directories
 
         // ability to exclude files with relative path

@@ -26,16 +26,17 @@ class HasherTest extends TestCase
     public function testHashExclude()
     {
         $hasher = new Hasher();
-        $hasher->setEntries('src', ['Converter', 'Entity', 'Exception/InvalidHashException.php']);
+        $hasher->setEntries('src', ['Converter', 'Entity', 'Exception\InvalidHashException.php']);
 
         $result = $hasher->getResult();
-        $this->assertNotEmpty($hasher->getResult());
+        file_put_contents(__DIR__ . '/../Fixtures/exclude.xml', $result);
+
+        $this->assertNotEmpty($result);
         $this->assertNotContains('src\Entity\FileEntry.php', $result);
         $this->assertNotContains('src\Entity\Fciv.php', $result);
         $this->assertNotContains('src\Converter\UpperCaseToCamelCaseConverter.php', $result);
         $this->assertNotContains('src\Converter\CamelCaseToUpperCaseConverter.php', $result);
-
-        file_put_contents(__DIR__ . '/../Fixtures/exclude.xml', $result);
+        $this->assertNotContains('src\Exception\InvalidHashException.php', $result);
     }
 
     public function testHashMultiple()
@@ -60,5 +61,23 @@ class HasherTest extends TestCase
         $this->assertNotContains('vendor\phpunit\phpunit\composer.json', $result);
 
         file_put_contents(__DIR__ . '/../Fixtures/vendor.xml', $result);
+    }
+
+    public function testHashNormalizePath()
+    {
+        $hasher = new Hasher('md5');
+        $hasher->setEntries('vendor\symfony\finder', [
+            'Iterator',
+            'Comparator\DateComparator.php',
+            'Comparator\NumberComparator.php',]
+        );
+
+        $result = $hasher->getResult();
+        $this->assertNotEmpty($result);
+        $this->assertNotContains('vendor\symfony\finder\Iterator', $result);
+        $this->assertNotContains('Comparator\DateComparator.php', $result);
+        $this->assertNotContains('Comparator\NumberComparator.php', $result);
+
+        file_put_contents(__DIR__ . '/../Fixtures/finder.xml', $result);
     }
 }
