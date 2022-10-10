@@ -26,7 +26,7 @@
     },
     "scripts": {
         "test": [
-            "vendor/bin/phpunit --coverage-text"
+            "vendor/bin/phpunit --testdox --coverage-text"
         ],
         "fix": [
             "vendor/bin/phpcbf --standard=PSR1,PSR12 src"
