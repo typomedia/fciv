@@ -17,11 +17,11 @@ class VerifierTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testVerifySha1()
+    public function testVerifyMd5()
     {
-        $input = __DIR__ . '/../Fixtures/test.xml';
+        $input = __DIR__ . '/../Fixtures/vendor.xml';
 
-        $validator = new Verifier('sha1');
+        $validator = new Verifier();
         $fciv = $validator->verify(file_get_contents($input));
 
         $this->assertTrue($fciv);
@@ -30,11 +30,11 @@ class VerifierTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testVerifyMd5()
+    public function testVerifySha1()
     {
-        $input = __DIR__ . '/../Fixtures/vendor.xml';
+        $input = __DIR__ . '/../Fixtures/test.xml';
 
-        $validator = new Verifier();
+        $validator = new Verifier('sha1');
         $fciv = $validator->verify(file_get_contents($input));
 
         $this->assertTrue($fciv);
