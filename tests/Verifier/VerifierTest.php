@@ -17,7 +17,7 @@ class VerifierTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testVerifySingle()
+    public function testVerifySha1()
     {
         $input = __DIR__ . '/../Fixtures/test.xml';
 
@@ -30,7 +30,7 @@ class VerifierTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testVerifyVendor()
+    public function testVerifyMd5()
     {
         $input = __DIR__ . '/../Fixtures/vendor.xml';
 
