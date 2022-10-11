@@ -21,7 +21,7 @@ class Verifier implements VerifierInterface
     private $algo;
 
     /**
-     * @var string $file
+     * @var string|null $file
      */
     private $file;
 
@@ -31,7 +31,7 @@ class Verifier implements VerifierInterface
     private $count = 0;
 
     /**
-     * @var array $errors
+     * @var Error[] $errors
      */
     private $errors = [];
 
@@ -46,7 +46,7 @@ class Verifier implements VerifierInterface
     /**
      * @param string $data
      * @param null $path
-     * @return bool|false
+     * @return bool
      * @throws Exception
      */
     public function verify(string $data, $exclude = [], $path = null)
@@ -118,6 +118,7 @@ class Verifier implements VerifierInterface
         if (!file_exists($file)) {
             return false;
         }
+
         return hash_file($this->algo, $file);
     }
 
