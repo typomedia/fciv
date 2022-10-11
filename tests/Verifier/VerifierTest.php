@@ -52,6 +52,25 @@ class VerifierTest extends TestCase
         $fciv = $verifier->verify(file_get_contents($input));
 
         $this->assertTrue($fciv);
+        $this->assertEquals(8, $verifier->getCount());
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function testVerifyExclude()
+    {
+        $input = __DIR__ . '/../Fixtures/finder.xml';
+
+        $verifier = new Verifier('both');
+        $fciv = $verifier->verify(file_get_contents($input), [
+            'vendor\symfony\finder\Exception\DirectoryNotFoundException.php',
+            'vendor\symfony\finder\Exception\AccessDeniedException.php',
+            ]
+        );
+
+        $this->assertTrue($fciv);
+        $this->assertEquals(6, $verifier->getCount());
     }
 
     /**

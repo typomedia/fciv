@@ -26,6 +26,11 @@ class Verifier implements VerifierInterface
     private $file;
 
     /**
+     * @var int $count
+     */
+    private $count = 0;
+
+    /**
      * @var array $errors
      */
     private $errors = [];
@@ -44,7 +49,7 @@ class Verifier implements VerifierInterface
      * @return bool|false
      * @throws Exception
      */
-    public function verify(string $data, $path = null)
+    public function verify(string $data, $exclude = [], $path = null)
     {
         $parser = new Parser();
 
@@ -54,6 +59,10 @@ class Verifier implements VerifierInterface
         foreach ($files->fileEntry as $file) {
             // win directory sparator for compatibility
             $this->file = $path ? $path . '\\' . $file->name : $file->name;
+
+            if (in_array($this->file, $exclude)) {
+                continue;
+            }
 
             switch ($this->algo) {
                 case 'sha1':
@@ -80,6 +89,14 @@ class Verifier implements VerifierInterface
         }
 
         return true;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCount(): int
+    {
+        return $this->count;
     }
 
     /**
@@ -119,6 +136,7 @@ class Verifier implements VerifierInterface
 
             $this->errors[] = $error;
         }
+        $this->count++;
         return true;
     }
 }
