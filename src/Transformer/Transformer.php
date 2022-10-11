@@ -22,7 +22,7 @@ class Transformer
 
     public function __construct()
     {
-        $serializer = new Serializer(
+        $this->serializer = new Serializer(
             [new ObjectNormalizer(
                 null,
                 new CamelCaseToUpperCaseConverter(),
@@ -31,7 +31,5 @@ class Transformer
             ), new ArrayDenormalizer()],
             [new XmlEncoder()]
         );
-
-        $this->serializer = $serializer;
     }
 }
