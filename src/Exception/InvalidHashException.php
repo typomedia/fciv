@@ -12,15 +12,18 @@ use Typomedia\Fciv\Entity\Error;
  */
 class InvalidHashException extends Exception
 {
+    /**
+     * @var mixed|null
+     */
     protected $message;
 
-    public function __construct($messages, $code = 0, Throwable $previous = null)
+    public function __construct($messages, $code = 0, Throwable $throwable = null)
     {
-        foreach ($messages as $error) {
+        foreach ($messages as $message) {
             /** @var Error $error */
-            $this->message .= $error->file . ' ' . $error->algo . ' ' . $error->hash . PHP_EOL;
+            $this->message .= $message->file . ' ' . $message->algo . ' ' . $message->hash . PHP_EOL;
         }
 
-        parent::__construct($this->message, $code, $previous);
+        parent::__construct($this->message, $code, $throwable);
     }
 }
