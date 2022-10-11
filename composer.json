@@ -1,6 +1,6 @@
 {
     "name": "typomedia/fciv",
-    "description": "FCIV compatible lib for hash and verify files",
+    "description": "File Checksum Integrity Verifier",
     "type": "library",
     "license": "MIT",
     "autoload": {
