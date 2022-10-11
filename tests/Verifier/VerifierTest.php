@@ -3,6 +3,7 @@
 namespace Typomedia\Fciv\Tests\Verifier;
 
 use Exception;
+use Symfony\Component\Serializer\Exception\NotEncodableValueException;
 use Typomedia\Fciv\Exception\InvalidHashException;
 use Typomedia\Fciv\Verifier\Verifier;
 use PHPUnit\Framework\TestCase;
@@ -56,11 +57,25 @@ class VerifierTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testVerifyException()
+    public function testVerifyInvalidHashException()
     {
         $input = __DIR__ . '/../Fixtures/win.xml';
 
         $this->expectException(InvalidHashException::class);
+
+        $verifier = new Verifier();
+        $verifier->verify(file_get_contents($input));
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function testVerifyEmptyFileException()
+    {
+        $input = __DIR__ . '/../Fixtures/empty.xml';
+
+        $this->expectException(NotEncodableValueException::class);
+        $this->expectExceptionMessage('Invalid XML data, it cannot be empty.');
 
         $verifier = new Verifier();
         $verifier->verify(file_get_contents($input));
