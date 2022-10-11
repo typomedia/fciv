@@ -45,11 +45,12 @@ class Verifier implements VerifierInterface
 
     /**
      * @param string $data
+     * @param array $exclude
      * @param null $path
      * @return bool
-     * @throws Exception
+     * @throws InvalidHashException
      */
-    public function verify(string $data, $exclude = [], $path = null)
+    public function verify(string $data, array $exclude = [], $path = null): bool
     {
         $parser = new Parser();
 
@@ -60,7 +61,7 @@ class Verifier implements VerifierInterface
             // win directory sparator for compatibility
             $this->file = $path ? $path . '\\' . $file->name : $file->name;
 
-            if (in_array($this->file, $exclude)) {
+            if (in_array($this->file, $exclude, true)) {
                 continue;
             }
 
@@ -137,6 +138,7 @@ class Verifier implements VerifierInterface
 
             $this->errors[] = $error;
         }
+
         $this->count++;
         return true;
     }
