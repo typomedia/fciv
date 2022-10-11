@@ -11,12 +11,12 @@ class Fciv
     /**
      * @var FileEntry[]
      */
-    public $fileEntry;
+    public $fileEntry = [];
 
     /**
      * @param FileEntry $fileEntry
      */
-    public function addFileEntry(FileEntry $fileEntry)
+    public function addFileEntry(FileEntry $fileEntry): void
     {
         $this->fileEntry[] = $fileEntry;
     }
