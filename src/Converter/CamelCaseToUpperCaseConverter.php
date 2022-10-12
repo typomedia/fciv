@@ -9,20 +9,20 @@ class CamelCaseToUpperCaseConverter implements NameConverterInterface
     /**
      * Converts a string like 'fileEntry' to 'FILE_ENTRY'.
      */
-    public function normalize($propertyName): string
+    public function normalize(string $input): string
     {
-        if ($propertyName === 'name') {
-            return $propertyName;
+        if ($input === 'name') {
+            return $input;
         }
 
         $snakeCase = '';
 
-        $len = \strlen($propertyName);
+        $len = \strlen($input);
         for ($i = 0; $i < $len; ++$i) {
-            if (ctype_upper($propertyName[$i])) {
-                $snakeCase .= '_' . strtoupper($propertyName[$i]);
+            if (ctype_upper($input[$i])) {
+                $snakeCase .= '_' . strtoupper($input[$i]);
             } else {
-                $snakeCase .= strtoupper($propertyName[$i]);
+                $snakeCase .= strtoupper($input[$i]);
             }
         }
 
@@ -32,9 +32,9 @@ class CamelCaseToUpperCaseConverter implements NameConverterInterface
     /**
      * Converts a string like 'FILE_ENTRY' to 'fileEntry'.
      */
-    public function denormalize($propertyName): string
+    public function denormalize(string $input): string
     {
-        $words =  ucwords(strtolower($propertyName), '_');
+        $words =  ucwords(strtolower($input), '_');
         return lcfirst(str_replace('_', '', $words));
     }
 }
