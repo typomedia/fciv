@@ -94,7 +94,7 @@ class VerifierTest extends TestCase
         $input = __DIR__ . '/../Fixtures/empty.xml';
 
         $this->expectException(NotEncodableValueException::class);
-        $this->expectExceptionMessage('Invalid XML data, it cannot be empty.');
+        $this->expectExceptionMessage('Invalid XML data, it can not be empty.');
 
         $verifier = new Verifier();
         $verifier->verify(file_get_contents($input));

@@ -9,25 +9,25 @@ class UpperCaseToCamelCaseConverter implements NameConverterInterface
     /**
      * Converts a string like 'FILE_ENTRY' to 'fileEntry'.
      */
-    public function normalize(string $input): string
+    public function normalize($propertyName): string
     {
-        $words =  ucwords(strtolower($input), '_');
+        $words =  ucwords(strtolower($propertyName), '_');
         return lcfirst(str_replace('_', '', $words));
     }
 
     /**
      * Converts a string like 'fileEntry' to 'FILE_ENTRY'.
      */
-    public function denormalize(string $input): string
+    public function denormalize($propertyName): string
     {
         $snakeCase = '';
 
-        $len = \strlen($input);
+        $len = \strlen($propertyName);
         for ($i = 0; $i < $len; ++$i) {
-            if (ctype_upper($input[$i])) {
-                $snakeCase .= '_' . strtoupper($input[$i]);
+            if (ctype_upper($propertyName[$i])) {
+                $snakeCase .= '_' . strtoupper($propertyName[$i]);
             } else {
-                $snakeCase .= strtoupper($input[$i]);
+                $snakeCase .= strtoupper($propertyName[$i]);
             }
         }
 
