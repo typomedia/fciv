@@ -22,11 +22,13 @@
     "require-dev": {
         "phpunit/phpunit": "^9.5",
         "phpmd/phpmd": "^2.13",
-        "squizlabs/php_codesniffer": "^3.7"
+        "squizlabs/php_codesniffer": "^3.7",
+        "infection/infection": "^0.26.16"
     },
     "scripts": {
         "test": [
-            "vendor/bin/phpunit --testdox --coverage-text"
+            "vendor/bin/phpunit --testdox --coverage-text",
+            "vendor/bin/infection --min-msi=60 --threads=4"
         ],
         "fix": [
             "vendor/bin/phpcbf --standard=PSR1,PSR12 src"
@@ -35,5 +37,10 @@
             "vendor/bin/phpcs --standard=PSR1,PSR12 --error-severity=1 --warning-severity=8 src",
             "vendor/bin/phpmd src text codesize, controversial, design, naming, unusedcode"
         ]
+    },
+    "config": {
+        "allow-plugins": {
+            "infection/extension-installer": true
+        }
     }
 }
