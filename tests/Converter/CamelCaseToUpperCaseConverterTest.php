@@ -12,7 +12,6 @@ class CamelCaseToUpperCaseConverterTest extends TestCase
         $converter = new CamelCaseToUpperCaseConverter();
 
         $this->assertEquals('fileEntry', $converter->denormalize('FILE_ENTRY'));
-
     }
 
     public function testDenormalizeLong()
@@ -20,7 +19,6 @@ class CamelCaseToUpperCaseConverterTest extends TestCase
         $converter = new CamelCaseToUpperCaseConverter();
 
         $this->assertEquals('fileEntryLong', $converter->denormalize('FILE_ENTRY_LONG'));
-
     }
 
     public function testNormalize()
@@ -28,7 +26,6 @@ class CamelCaseToUpperCaseConverterTest extends TestCase
         $converter = new CamelCaseToUpperCaseConverter();
 
         $this->assertEquals('FILE_ENTRY', $converter->normalize('fileEntry'));
-
     }
 
     public function testNormalizeLong()
@@ -36,6 +33,5 @@ class CamelCaseToUpperCaseConverterTest extends TestCase
         $converter = new CamelCaseToUpperCaseConverter();
 
         $this->assertEquals('FILE_ENTRY_LONG', $converter->normalize('fileEntryLong'));
-
     }
 }

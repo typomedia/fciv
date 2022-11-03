@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 class VerifierTest extends TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         chdir(dirname(__DIR__, 2));
     }
@@ -66,8 +66,7 @@ class VerifierTest extends TestCase
         $fciv = $verifier->verify(file_get_contents($input), [
             'vendor\symfony\finder\Exception\DirectoryNotFoundException.php',
             'vendor\symfony\finder\Exception\AccessDeniedException.php',
-            ]
-        );
+            ]);
 
         $this->assertTrue($fciv);
         $this->assertEquals(6, $verifier->getCount());
