@@ -15,7 +15,7 @@ This library is fully compatible with `fciv.exe` v2.05.
 
 ## Requirements
 
-- `>= PHP 7.1`
+- `>= PHP 7.4`
 
 ## Dependencies
 
