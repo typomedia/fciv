@@ -21,6 +21,11 @@ class Verifier implements VerifierInterface
     private $algo;
 
     /**
+     * @var false|string
+     */
+    private $timeout;
+
+    /**
      * @var string|null $file
      */
     private $file;
@@ -36,11 +41,17 @@ class Verifier implements VerifierInterface
     private $errors = [];
 
     /**
-     * @var string $algo
+     * @param string $algo md5, sha1, both
+     * @param int|null $seconds timeout in seconds
      */
-    public function __construct(string $algo = 'md5')
+    public function __construct(string $algo = 'md5', int $seconds = null)
     {
         $this->algo = $algo;
+        $this->timeout = ini_get('max_execution_time');
+
+        if ($seconds !== null) {
+            set_time_limit($seconds);
+        }
     }
 
     /**
@@ -142,4 +153,13 @@ class Verifier implements VerifierInterface
         $this->count++;
         return true;
     }
+
+    public function __destruct()
+    {
+        // restore max_execution_time
+        if ($this->timeout !== null) {
+            ini_set('max_execution_time', $this->timeout);
+        }
+    }
+
 }
