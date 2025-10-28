@@ -33,8 +33,11 @@ composer require typomedia/fciv
 
 ```php
 use Typomedia\Fciv\Verifier\Verifier;
-
-$verifier = new Verifier(); // Options: string $algo = 'md5|sha1|both'
+/**
+ * @param string $algo md5, sha1, both
+ * @param int|null $seconds timeout in seconds
+ */
+$verifier = new Verifier();
 $result = $verifier->verify(file_get_contents('fciv.xml')); // Options: string $data, $exclude = [], $path = null
 ```
 
@@ -42,8 +45,18 @@ $result = $verifier->verify(file_get_contents('fciv.xml')); // Options: string $
 
 ```php
 use Typomedia\Fciv\Hasher\Hasher;
-
+/**
+ * @param string $algo md5, sha1, both
+ * @param array $types file name patterns to include
+ * @param int|null $seconds timeout in seconds
+ */
 $hasher = new Hasher(); // Options: string $algo = 'md5|sha1|both', array $types = []
 $hasher->setEntries('src'); // Options: string $path, array $exclude = []
 $result = $hasher->getResult();
+```
+
+## Test
+
+```
+composer test
 ```

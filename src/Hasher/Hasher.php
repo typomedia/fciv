@@ -25,13 +25,24 @@ class Hasher implements HasherInterface
     private $types;
 
     /**
-     * @param string $algo
-     * @param array $types
+     * @var false|string
      */
-    public function __construct(string $algo = 'md5', array $types = [])
+    private $timeout;
+
+/**
+ * @param string $algo md5, sha1, both
+ * @param array $types file name patterns to include
+ * @param int|null $seconds timeout in seconds
+ */
+    public function __construct(string $algo = 'md5', array $types = [], int $seconds = null)
     {
         $this->algo = $algo;
         $this->types = $types;
+        $this->timeout = ini_get('max_execution_time');
+
+        if ($seconds !== null) {
+            set_time_limit($seconds);
+        }
     }
 
     /**
@@ -45,8 +56,8 @@ class Hasher implements HasherInterface
     public $result;
 
     /**
-     * @param string $path
-     * @param array $exclude
+     * @param string $path directory path
+     * @param array $exclude paths to exclude
      * @return FileEntry[]
      */
     public function setEntries(string $path, array $exclude = []): array
@@ -54,7 +65,7 @@ class Hasher implements HasherInterface
         $finder = new Finder();
         $path = Path::normalize($path);
         $exclude = array_map('\Typomedia\Fciv\Normalizer\Path::normalize', $exclude);
-        $finder->files()->in($path)->name($this->types)->exclude($exclude); // ecxlude() only works with directories
+        $finder->files()->in($path)->name($this->types)->exclude($exclude); // exclude() only works with directories
 
         // ability to exclude files with relative path
         foreach ($exclude as $item) {
@@ -113,5 +124,13 @@ class Hasher implements HasherInterface
         $fciv->fileEntry = $this->entries;
 
         return $fciv;
+    }
+
+    public function __destruct()
+    {
+        // restore max_execution_time
+        if ($this->timeout !== null) {
+            ini_set('max_execution_time', $this->timeout);
+        }
     }
 }
